@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Viridian Oak</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    @font-face {
+    font-family: 'Nexa';
+    src: url('/bk.otf') format('opentype');
+    font-weight: 400;
+    font-style: normal;
+}
+
+    :root {
+      --bg: #ece9e2;
+      --text: #111111;
+      --side-pad: clamp(24px, 4vw, 64px);
+      --bottom-pad: clamp(24px, 3vw, 48px);
+      --gap: clamp(24px, 4vw, 70px);
+      --logo-size: clamp(56px, 6vw, 120px);
+      --body-size: clamp(16px, 1.45vw, 25px);
+      --body-lh: 1.28;
+      --image-height: clamp(320px, 64vh, 760px);
+    }
+
+    html,
+    body {
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      background: var(--bg);
+      font-family: Arial, Helvetica, sans-serif;
+      color: var(--text);
+    }
+
+    .page {
+      width: 100vw;
+      height: 100vh;
+      background: var(--bg);
+      display: flex;
+      flex-direction: column;
+    }
+
+    .hero {
+      width: 100%;
+  height: var(--image-height);
+  background: url("/hero.png") center bottom / cover no-repeat;
+  display: block;
+  flex-shrink: 0;
+    }
+
+    .content {
+      flex: 1;
+      display: grid;
+      grid-template-columns: minmax(180px, 340px) 1fr;
+      align-items: center;
+      gap: var(--gap);
+      padding: clamp(22px, 3.2vh, 44px) var(--side-pad) var(--bottom-pad);
+      min-height: 0;
+    }
+
+    .logo {
+      font-size: var(--logo-size);
+      line-height: 0.9;
+      font-weight: 300;
+      letter-spacing: -0.06em;
+      text-transform: uppercase;
+      align-self: center;
+    }
+
+    .copy {
+      max-width: 1100px;
+      font-size: var(--body-size);
+      line-height: var(--body-lh);
+      font-weight: 400;
+      letter-spacing: -0.02em;
+      font-family: 'Nexa', Arial, sans-serif;
+    }
+    
+
+    @media (max-width: 900px) {
+      :root {
+        --image-height: 48vh;
+        --curve: 140px;
+      }
+
+      .content {
+        grid-template-columns: 1fr;
+        align-items: start;
+        gap: 18px;
+      }
+
+      .logo {
+        font-size: clamp(52px, 12vw, 86px);
+      }
+
+      .copy {
+        font-size: clamp(15px, 3.8vw, 22px);
+        line-height: 1.32;
+      }
+    }
+
+    @media (max-width: 600px) {
+      :root {
+        --image-height: 42vh;
+        --curve: 100px;
+      }
+
+      .hero {
+        background-position: center center;
+      }
+
+      .content {
+        padding-top: 20px;
+        padding-bottom: 20px;
+      }
+
+      .logo {
+        line-height: 0.92;
+      }
+
+      .copy {
+        max-width: 100%;
+      }
+    }
+
+    @media (max-height: 760px) {
+      :root {
+        --image-height: 56vh;
+        --logo-size: clamp(48px, 5vw, 88px);
+        --body-size: clamp(14px, 1.2vw, 20px);
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <section class="hero"></section>
+
+    <section class="content">
+      <div class="logo">
+        <img src="/logo.svg">
+      </div>
+
+      <div class="copy">
+        We are a private investment vehicle dedicated to the stewardship of
+        mission-critical assets. At the intersection of intelligence and
+        infrastructure, we cultivate a premier portfolio of market leaders
+        across AI-driven SaaS, cybersecurity, and telecommunications, anchored
+        by strategic real estate. By bridging the gap between digital
+        innovation and physical foundations, we do not chase the ephemeral; we
+        invest in the permanent.
+      </div>
+    </section>
+  </main>
+</body>
+</html>
